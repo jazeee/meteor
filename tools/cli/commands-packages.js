@@ -1662,6 +1662,9 @@ main.registerCommand({
                 'for example: 1.0.0');
     Console.warn('To look up the latest version of cordova-plugin-inappbrowser, run:');
     Console.warn('  npm view PLUGIN version');
+    if (upgradePackagesWithoutCordova.length !== 0) {
+      Console.warn('Now I will try to update other packages you mentioned.');
+    }
     // Exclude cordova packages
     upgradePackageNames = upgradePackagesWithoutCordova;
   }
