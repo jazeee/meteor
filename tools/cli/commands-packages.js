@@ -1698,11 +1698,13 @@ main.registerCommand({
 
       // If the user explicitly mentioned some packages to upgrade, they must
       // actually end up in our solution!
-      _.each(upgradePackageNames, function (packageName) {
-        if (! projectContext.packageMap.getInfo(packageName)) {
-          buildmessage.error(packageName + ': package is not in the project');
-        }
-      });
+      if (options.args.length !== 0) {
+        _.each(upgradePackageNames, function (packageName) {
+          if (! projectContext.packageMap.getInfo(packageName)) {
+            buildmessage.error(packageName + ': package is not in the project');
+          }
+        });
+      }
       if (buildmessage.jobHasMessages()) {
         return;
       }
