@@ -1698,7 +1698,7 @@ main.registerCommand({
 
       // If the user explicitly mentioned some packages to upgrade, they must
       // actually end up in our solution!
-      _.each(options.args, function (packageName) {
+      _.each(upgradePackageNames, function (packageName) {
         if (! projectContext.packageMap.getInfo(packageName)) {
           buildmessage.error(packageName + ': package is not in the project');
         }
